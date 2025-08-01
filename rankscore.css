@@ -106,9 +106,19 @@ button#calculate-btn:hover {
  
 }
 
+
 @media screen and (max-width: 480px) {
   .grid-header {
     background-color: rgb(207, 255, 192);
     font-size: 0.8em; 
   }
 }
+
+/* Samsung Galaxy S8 */
+@media screen and (max-width: 375px) {
+  .grid-header, .subject-row {
+    grid-template-columns: 1fr 1fr;
+    font-size: 0.85em;
+  }
+}
+
