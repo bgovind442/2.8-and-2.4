@@ -97,15 +97,9 @@ button#calculate-btn:hover {
   color: #2c3e50;
 }
 
-
 .open-sans {
   font-family: "Open Sans", sans-serif;
-
-
-
- 
 }
-
 
 @media screen and (max-width: 480px) {
   .grid-header {
@@ -114,10 +108,11 @@ button#calculate-btn:hover {
   }
 }
 
-/* Samsung Galaxy S8 */
+/* Samsung Galaxy S8 and smaller */
 @media screen and (max-width: 375px) {
   .grid-header, .subject-row {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-row-gap: 6px;
     font-size: 0.85em;
   }
 }
