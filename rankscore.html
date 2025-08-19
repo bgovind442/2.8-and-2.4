@@ -24,7 +24,69 @@
 
     <!-- Subject row -->
     <div class="subject-row">
-      <label class="sr-only" for="subject-1">Subject</label>
+      <select class="subject-name"></select>
+        <option value="">Select Subject</option>
+        <option>English</option>
+        <option>Dance</option>
+        <option>Design (Practical Art)</option>
+        <option>Drama</option>
+        <option>History of Art</option>
+        <option>Music Studies</option>
+        <option>Painting (Practical Art)</option>
+        <option>Photography (Practical Art)</option>
+        <option>Printmaking (Practical Art)</option>
+        <option>Sculpture</option>
+        <option>Health Education</option>
+        <option>Home Economics</option>
+        <option>Physical Education</option>
+        <option>Chinese</option>
+        <option>Cook Islands Māori</option>
+        <option>French</option>
+        <option>German</option>
+        <option>Indonesian</option>
+        <option>Japanese</option>
+        <option>Korean</option>
+        <option>Latin</option>
+        <option>New Zealand Sign Language</option>
+        <option>Samoan</option>
+        <option>Spanish</option>
+        <option>Tongan</option>
+        <option>Calculus</option>
+        <option>Mathematics</option>
+        <option>Statistics</option>
+        <option>Agriculture and Horticultural Science</option>
+        <option>Biology</option>
+        <option>Chemistry</option>
+        <option>Earth and Space Science</option>
+        <option>Physics</option>
+        <option>Science</option>
+        <option>Accounting</option>
+        <option>Business Studies</option>
+        <option>Classical Studies</option>
+        <option>Economics</option>
+        <option>Geography</option>
+        <option>History</option>
+        <option>Media Studies</option>
+        <option>Psychology</option>
+        <option>Social Studies</option>
+        <option>Construction and Mechanical Technologies</option>
+        <option>Design and Visual Communication</option>
+        <option>Digital Technologies</option>
+        <option>Processing Technologies</option>
+        <option>Technology</option>
+        <option>Religious Studies</option>
+        <option>Te Reo Māori</option>
+        <option>Te Reo Rangatira</option>
+      </select>
+      <input type="number" class="excellence" placeholder="E" value="0" min="0" />
+      <input type="number" class="merit" placeholder="M" value="0" min="0" />
+      <input type="number" class="achieved" placeholder="A" value="0" min="0" />
+      <div class="total">0</div>
+    </div>
+
+
+         
+     <label class="sr-only" for="subject-1">Subject</label>
       <input id="subject-1" type="text" placeholder="e.g. Maths" class="subject-name" aria-label="Subject name">
 
       <label class="sr-only" for="excellence-1">Excellence credits</label>
@@ -41,7 +103,7 @@
 
     <button id="calculate-btn" type="button">Calculate Total</button>
   </main>
-  
+
   <div id="help-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="help-title">
     <div class="modal-content">
       <h2 id="help-title">How to Use the Calculator</h2>
