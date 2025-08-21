@@ -1,11 +1,35 @@
-document.querySelectorAll(".subject-row input").forEach(input => {
-  input.addEventListener("input", calculate); 
+// List of all subjects
+const subjects = [
+  "English","Dance","Design (Practical Art)","Drama","History of Art","Music Studies",
+  "Painting (Practical Art)","Photography (Practical Art)","Printmaking (Practical Art)","Sculpture",
+  "Health Education","Home Economics","Physical Education","Chinese","Cook Islands Māori","French",
+  "German","Indonesian","Japanese","Korean","Latin","New Zealand Sign Language","Samoan","Spanish",
+  "Tongan","Calculus","Mathematics","Statistics","Agriculture and Horticultural Science","Biology",
+  "Chemistry","Earth and Space Science","Physics","Science","Accounting","Business Studies",
+  "Classical Studies","Economics","Geography","History","Media Studies","Psychology","Social Studies",
+  "Construction and Mechanical Technologies","Design and Visual Communication","Digital Technologies",
+  "Processing Technologies","Technology","Religious Studies","Te Reo Māori","Te Reo Rangatira"
+];
+
+// Populate all subject dropdowns dynamically
+document.querySelectorAll(".subject-name").forEach(select => {
+  subjects.forEach(subject => {
+    const option = document.createElement("option");
+    option.value = subject;
+    option.textContent = subject;
+    select.appendChild(option);
+  });
 });
 
-// Added a click event listner to the "calaculate button"
+// Add input event listener to all number fields
+document.querySelectorAll(".subject-row input").forEach(input => {
+  input.addEventListener("input", calculate);
+});
+
+// Add click event listener to the calculate button
 document.getElementById("calculate-btn").addEventListener("click", calculate);
 
-// function that will perform all calculations
+// Function that performs all calculations
 function calculate() {
   const rows = document.querySelectorAll(".subject-row"); 
 
@@ -23,8 +47,7 @@ function calculate() {
     totalE += e; 
     totalM += m; 
     totalA += a; 
-     
-    //
+
     for (let i = 0; i < e; i++) creditPoints.push(4);
     for (let i = 0; i < m; i++) creditPoints.push(3);
     for (let i = 0; i < a; i++) creditPoints.push(2);
@@ -32,39 +55,29 @@ function calculate() {
 
   const totalCredits = totalE + totalM + totalA;
 
-  // sorts credits points in descending order so the highest points first 
   creditPoints.sort((a, b) => b - a);
-  // slices best 80 credits
   const best80 = creditPoints.slice(0, 80);
   const rankScore = best80.reduce((sum, p) => sum + p, 0);
 
- // Counts how many of the 80 credits are excellence (4 points)
   const bestE = best80.filter(p => p === 4).length;
-  // Counts how many of the 80 credits are merit (3 points)
   const bestM = best80.filter(p => p === 3).length;
-  // Counts how many of the 80 credits are achived (2 points)
   const bestA = best80.filter(p => p === 2).length;
-  // Calculates total score
   const bestTotal = bestE + bestM + bestA;
 
-   // Updates subtotal display by showing total Excellence, Merit, Achieved and overall credits
   document.getElementById("subtotal-e").textContent = totalE;
   document.getElementById("subtotal-m").textContent = totalM;
   document.getElementById("subtotal-a").textContent = totalA;
   document.getElementById("subtotal-total").textContent = totalCredits;
 
-  // Shows how many of each grade level were used in the best 80 credits
   document.getElementById("best-e").textContent = bestE;
   document.getElementById("best-m").textContent = bestM;
   document.getElementById("best-a").textContent = bestA;
   document.getElementById("best-total").textContent = bestTotal;
 
-  // Calculated and displaying the points of each grade type
   document.getElementById("calc-e").textContent = bestE * 4;
   document.getElementById("calc-m").textContent = bestM * 3;
   document.getElementById("calc-a").textContent = bestA * 2;
   document.getElementById("calc-total").textContent = rankScore;
 
-  // Displays the final calculated rank score
   document.getElementById("rank-score").textContent = rankScore;
 }

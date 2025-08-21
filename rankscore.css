@@ -1,3 +1,4 @@
+/* Main container styles remain the same */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f9f9f9;
@@ -21,26 +22,36 @@ h1 {
   color: #2c3e50;
 }
 
+/* Use a 5-column grid for both header and subject rows */
 .grid-header, .subject-row {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  align-items: center;
   gap: 10px;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
+  align-items: center;
 }
 
+/* Header styles */
 .grid-header {
   font-weight: bold;
   color: #2980b9;
   border-bottom: 2px solid #2980b9;
+  text-align: center;
 }
 
-.subject-row:last-child {
-  border-bottom: none;
+/* Labels above the inputs */
+.grid-header > div:nth-child(2),
+.grid-header > div:nth-child(3),
+.grid-header > div:nth-child(4) {
+  display: block;
 }
 
-.subject-row input[type="text"],
+.grid-header > div:nth-child(1) {
+  text-align: left;
+}
+
+/* Subject row input styling */
 .subject-row input[type="number"] {
   width: 100%;
   padding: 6px 8px;
@@ -50,6 +61,24 @@ h1 {
   box-sizing: border-box;
 }
 
+/* Select styling */
+select {
+  height: 40px;
+  line-height: 40px;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+/* Ensure consistent font size for select and number inputs */
+input[type="number"],
+select {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+}
+
+/* Total column */
 .total {
   font-weight: bold;
   text-align: center;
@@ -57,6 +86,7 @@ h1 {
   color: #27ae60;
 }
 
+/* Button */
 button#calculate-btn {
   margin-top: 25px;
   display: block;
@@ -76,6 +106,7 @@ button#calculate-btn:hover {
   background-color: #1c5980;
 }
 
+/* Totals section */
 .totals-section {
   margin-top: 20px;
   padding: 15px;
@@ -89,6 +120,7 @@ button#calculate-btn:hover {
   color: #2c3e50;
 }
 
+/* Final score display */
 .final-score {
   text-align: center;
   font-size: 1.4rem;
@@ -97,18 +129,13 @@ button#calculate-btn:hover {
   color: #2c3e50;
 }
 
-.open-sans {
-  font-family: "Open Sans", sans-serif;
-}
-
+/* Responsive for smaller screens */
 @media screen and (max-width: 480px) {
   .grid-header {
-    background-color: rgb(207, 255, 192);
     font-size: 0.8em; 
   }
 }
 
-/* Samsung Galaxy S8 and smaller */
 @media screen and (max-width: 375px) {
   .grid-header, .subject-row {
     grid-template-columns: 1fr;
@@ -116,4 +143,3 @@ button#calculate-btn:hover {
     font-size: 0.85em;
   }
 }
-
