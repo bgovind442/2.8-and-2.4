@@ -1,4 +1,3 @@
-/* Main container styles remain the same */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #d6ebff;
@@ -7,14 +6,25 @@ body {
   color: #333;
 }
 
-.calculator-container {
-  max-width: 700px;
+
+.main-wrapper {
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+
+.calculator-container, .totals-sidebar {
+  width: 550px; 
   background: white;
-  border-radius: 8px;
-  padding: 25px 30px;
+  border-radius: 6px;
+  padding: 20px 25px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
 
 h1 {
   text-align: center;
@@ -22,7 +32,6 @@ h1 {
   color: #2c3e50;
 }
 
-/* Use a 5-column grid for both header and subject rows */
 .grid-header, .subject-row {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
@@ -32,7 +41,6 @@ h1 {
   align-items: center;
 }
 
-/* Header styles */
 .grid-header {
   font-weight: bold;
   color: #2980b9;
@@ -40,20 +48,9 @@ h1 {
   text-align: center;
 }
 
-/* Labels above the inputs */
-.grid-header > div:nth-child(2),
-.grid-header > div:nth-child(3),
-.grid-header > div:nth-child(4) {
-  display: block;
-}
-
-.grid-header > div:nth-child(1) {
-  text-align: left;
-}
-
-/* Subject row input styling */
-.subject-row input[type="number"] {
+.subject-row input[type="number"], .subject-row select {
   width: 100%;
+  height: 40px;
   padding: 6px 8px;
   font-size: 1rem;
   border: 1px solid #ccc;
@@ -61,58 +58,25 @@ h1 {
   box-sizing: border-box;
 }
 
-/* Select styling */
-select {
-  height: 40px;
-  line-height: 40px;
-  font-family: inherit;
-  font-size: 16px;
-  padding: 0 8px;
-  box-sizing: border-box;
+.subject-row input[type="number"] {
+  text-align: center;
 }
 
-/* Ensure consistent font size for select and number inputs */
-input[type="number"],
-select {
-  font-family: "Arial", sans-serif;
-  font-size: 16px;
-}
-
-/* Total column */
 .total {
   font-weight: bold;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #27ae60;
 }
 
-/* Button */
-button#calculate-btn {
-  margin-top: 25px;
-  display: block;
-  width: 100%;
-  padding: 12px 0;
-  background-color: #2980b9;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.25s ease-in-out;
-}
 
 button#calculate-btn:hover {
   background-color: #1c5980;
 }
 
-/* Totals section */
-.totals-section {
-  margin-top: 20px;
-  padding: 15px;
-  background: #f1f9ff;
-  border-radius: 6px;
-  font-size: 0.95rem;
+.totals-sidebar {
+  flex-shrink: 0;
+  font-size: 1rem; 
 }
 
 .totals-section h3 {
@@ -120,20 +84,27 @@ button#calculate-btn:hover {
   color: #2c3e50;
 }
 
-/* Final score display */
 .final-score {
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-top: 25px;
   font-weight: bold;
   color: #2c3e50;
 }
 
-/* Responsive for smaller screens */
-@media screen and (max-width: 480px) {
-  .grid-header {
-    font-size: 0.8em; 
+/* RESPONSIVE ADJUSTMENTS */
+@media screen and (max-width: 1024px) {
+  .main-wrapper {
+    flex-direction: column;
+    align-items: center;
   }
+  .calculator-container, .totals-sidebar {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .grid-header { font-size: 0.8em; }
 }
 
 @media screen and (max-width: 375px) {

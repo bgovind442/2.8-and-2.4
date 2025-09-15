@@ -10,161 +10,77 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <main class="calculator-container" role="main">
-    <h1>NCEA Rank Score Calculator</h1>
-
-    <div class="grid-header open-sans" aria-hidden="true">
-      <div>Subject</div>
-      <div>Excellence</div>
-      <div>Merit</div>
-      <div>Achieved</div>
-      <div>Total</div>
-    </div>
-
-    <!-- subject rows (repeatable) -->
-    <div class="subject-row">
-      <select class="subject-name">
-        <option value="">Select Subject</option>
-        <option>English</option>
-        <option>Dance</option>
-        <option>Design (Practical Art)</option>
-        <option>Drama</option>
-        <option>History of Art</option>
-        <option>Music Studies</option>
-        <option>Painting (Practical Art)</option>
-        <option>Photography (Practical Art)</option>
-        <option>Printmaking (Practical Art)</option>
-        <option>Sculpture</option>
-        <option>Health Education</option>
-        <option>Home Economics</option>
-        <option>Physical Education</option>
-        <option>Chinese</option>
-        <option>Cook Islands Māori</option>
-        <option>French</option>
-        <option>German</option>
-        <option>Indonesian</option>
-        <option>Japanese</option>
-        <option>Korean</option>
-        <option>Latin</option>
-        <option>New Zealand Sign Language</option>
-        <option>Samoan</option>
-        <option>Spanish</option>
-        <option>Tongan</option>
-        <option>Calculus</option>
-        <option>Mathematics</option>
-        <option>Statistics</option>
-        <option>Agriculture and Horticultural Science</option>
-        <option>Biology</option>
-        <option>Chemistry</option>
-        <option>Earth and Space Science</option>
-        <option>Physics</option>
-        <option>Science</option>
-        <option>Accounting</option>
-        <option>Business Studies</option>
-        <option>Classical Studies</option>
-        <option>Economics</option>
-        <option>Geography</option>
-        <option>History</option>
-        <option>Media Studies</option>
-        <option>Psychology</option>
-        <option>Social Studies</option>
-        <option>Construction and Mechanical Technologies</option>
-        <option>Design and Visual Communication</option>
-        <option>Digital Technologies</option>
-        <option>Processing Technologies</option>
-        <option>Technology</option>
-        <option>Religious Studies</option>
-        <option>Te Reo Māori</option>
-        <option>Te Reo Rangatira</option>
-      </select>
-      <input type="number" class="excellence" placeholder="E" value="0" min="0" />
-      <input type="number" class="merit" placeholder="M" value="0" min="0" />
-      <input type="number" class="achieved" placeholder="A" value="0" min="0" />
-      <div class="total">0</div>
-    </div>
-
-    <!-- subject row 2 -->
-    <div class="subject-row">
-      <select class="subject-name"><option value="">Select Subject</option></select>
-      <input type="number" class="excellence" placeholder="E" value="0" min="0" />
-      <input type="number" class="merit" placeholder="M" value="0" min="0" />
-      <input type="number" class="achieved" placeholder="A" value="0" min="0" />
-      <div class="total">0</div>
-    </div>
-    
-    <!-- subject row 3 -->
-    <div class="subject-row">
-      <select class="subject-name"><option value="">Select Subject</option></select>
-      <input type="number" class="excellence" placeholder="E" value="0" min="0" />
-      <input type="number" class="merit" placeholder="M" value="0" min="0" />
-      <input type="number" class="achieved" placeholder="A" value="0" min="0" />
-      <div class="total">0</div>
-    </div>
-      
-    <!-- subject row 4 -->
-    <div class="subject-row">
-      <select class="subject-name"><option value="">Select Subject</option></select>
-      <input type="number" class="excellence" placeholder="E" value="0" min="0" />
-      <input type="number" class="merit" placeholder="M" value="0" min="0" />
-      <input type="number" class="achieved" placeholder="A" value="0" min="0" />
-      <div class="total">0</div>
-    </div>
-
-    <!-- subject row 5 -->
-    <div class="subject-row">
-      <select class="subject-name"><option value="">Select Subject</option></select>
-      <input type="number" class="excellence" placeholder="E" value="0" min="0" />
-      <input type="number" class="merit" placeholder="M" value="0" min="0" />
-      <input type="number" class="achieved" placeholder="A" value="0" min="0" />
-      <div class="total">0</div>
-    </div>
-     
-    <!-- subject row 6 -->
-    <div class="subject-row">
-      <select class="subject-name"><option value="">Select Subject</option></select>
-      <input type="number" class="excellence" placeholder="E" value="0" min="0" />
-      <input type="number" class="merit" placeholder="M" value="0" min="0" />
-      <input type="number" class="achieved" placeholder="A" value="0" min="0" />
-      <div class="total">0</div>
-    </div>
-
-    <button id="calculate-btn" type="button">Calculate Total</button>
-  </main>
-
-  <div id="help-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="help-title">
-    <div class="modal-content">
-      <h2 id="help-title">How to Use the Calculator</h2>
-      <p>
-        Enter your subjects and the number of credits you have earned this year.
-        The calculator totals the best 80 credits and calculates your rank score:
-        4 points per Excellence, 3 for Merit, and 2 for Achieved.
-      </p>
-
-      <div class="totals-section">
-        <h3>Subtotal (Total Credits)</h3>
-        E: <span id="subtotal-e">0</span> |
-        M: <span id="subtotal-m">0</span> |
-        A: <span id="subtotal-a">0</span> |
-        Total: <span id="subtotal-total">0</span>
-
-        <h3>Best 80 Credits</h3>
-        E: <span id="best-e">0</span> |
-        M: <span id="best-m">0</span> |
-        A: <span id="best-a">0</span> |
-        Total: <span id="best-total">0</span>
-
-        <h3>Points Calculated</h3>
-        E Points: <span id="calc-e">0</span> |
-        M Points: <span id="calc-m">0</span> |
-        A Points: <span id="calc-a">0</span> |
-        Total Rank Score: <span id="calc-total">0</span>
+  <div class="main-wrapper">
+    <main class="calculator-container" role="main">
+      <h1>NCEA Rank Score Calculator</h1>
+      <div class="grid-header open-sans" aria-hidden="true">
+        <div>Subject</div>
+        <div>Excellence</div>
+        <div>Merit</div>
+        <div>Achieved</div>
+        <div>Total</div>
       </div>
 
+      <!-- 6 Subject Rows -->
+      <div class="subject-row">
+        <select class="subject-name"><option value="">Select Subject</option></select>
+        <input type="number" class="excellence" placeholder="E" value="0" min="0"/>
+        <input type="number" class="merit" placeholder="M" value="0" min="0"/>
+        <input type="number" class="achieved" placeholder="A" value="0" min="0"/>
+        <div class="total">0</div>
+      </div>
+      <div class="subject-row">
+        <select class="subject-name"><option value="">Select Subject</option></select>
+        <input type="number" class="excellence" placeholder="E" value="0" min="0"/>
+        <input type="number" class="merit" placeholder="M" value="0" min="0"/>
+        <input type="number" class="achieved" placeholder="A" value="0" min="0"/>
+        <div class="total">0</div>
+      </div>
+      <div class="subject-row">
+        <select class="subject-name"><option value="">Select Subject</option></select>
+        <input type="number" class="excellence" placeholder="E" value="0" min="0"/>
+        <input type="number" class="merit" placeholder="M" value="0" min="0"/>
+        <input type="number" class="achieved" placeholder="A" value="0" min="0"/>
+        <div class="total">0</div>
+      </div>
+      <div class="subject-row">
+        <select class="subject-name"><option value="">Select Subject</option></select>
+        <input type="number" class="excellence" placeholder="E" value="0" min="0"/>
+        <input type="number" class="merit" placeholder="M" value="0" min="0"/>
+        <input type="number" class="achieved" placeholder="A" value="0" min="0"/>
+        <div class="total">0</div>
+      </div>
+      <div class="subject-row">
+        <select class="subject-name"><option value="">Select Subject</option></select>
+        <input type="number" class="excellence" placeholder="E" value="0" min="0"/>
+        <input type="number" class="merit" placeholder="M" value="0" min="0"/>
+        <input type="number" class="achieved" placeholder="A" value="0" min="0"/>
+        <div class="total">0</div>
+      </div>
+      <div class="subject-row">
+        <select class="subject-name"><option value="">Select Subject</option></select>
+        <input type="number" class="excellence" placeholder="E" value="0" min="0"/>
+        <input type="number" class="merit" placeholder="M" value="0" min="0"/>
+        <input type="number" class="achieved" placeholder="A" value="0" min="0"/>
+        <div class="total">0</div>
+      </div>
+
+    
+    </main>
+
+    <aside class="totals-sidebar">
+      <div class="totals-section">
+        <h3>Subtotal (Total Credits)</h3>
+        E: <span id="subtotal-e">0</span> | M: <span id="subtotal-m">0</span> | A: <span id="subtotal-a">0</span> | Total: <span id="subtotal-total">0</span>
+        <h3>Best 80 Credits</h3>
+        E: <span id="best-e">0</span> | M: <span id="best-m">0</span> | A: <span id="best-a">0</span> | Total: <span id="best-total">0</span>
+        <h3>Points Calculated</h3>
+        E Points: <span id="calc-e">0</span> | M Points: <span id="calc-m">0</span> | A Points: <span id="calc-a">0</span> | Total Rank Score: <span id="calc-total">0</span>
+      </div>
       <div class="final-score">
         Final Rank Score: <span id="rank-score">0</span>
       </div>
-    </div>
+    </aside>
   </div>
 
   <script src="rankscore.js"></script>
